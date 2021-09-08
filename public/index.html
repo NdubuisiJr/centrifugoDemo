@@ -17,7 +17,7 @@
 
       centrifuge.on("connect", function (ctx) {
         console.log("connected", ctx);
-        centrifuge.subscribe("name", (ctx) => {
+        centrifuge.subscribe("channel_name", (ctx) => {
           console.log(ctx);
         });
       });
