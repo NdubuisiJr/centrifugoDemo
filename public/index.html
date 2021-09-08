@@ -11,11 +11,15 @@
     <script src="https://cdn.jsdelivr.net/gh/centrifugal/centrifuge-js@2.X.X/dist/centrifuge.min.js"></script>
     <script>
       const centrifuge = new Centrifuge(
-        "ws://realtime.zuri.chat/connection/websocket"
+        "ws://localhost:8000/connection/websocket"
+        // "wss://realtime.zuri.chat/connection/websocket"
       );
 
       centrifuge.on("connect", function (ctx) {
         console.log("connected", ctx);
+        centrifuge.subscribe("name", (ctx) => {
+          console.log(ctx);
+        });
       });
 
       centrifuge.on("disconnect", function (ctx) {
